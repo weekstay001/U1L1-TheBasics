@@ -47,15 +47,28 @@
             <p>
 
                 <label for="name">Your name</label><br>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" placeholder="First name is fine" required>
 
             </p>
 
             <p>
 
                 <label for="email">Email</label><br>
-                <input type="text" id="email" name="email">
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
 
+
+            </p>
+            <p>
+
+                <label for="cats">How many cats do you have?</label><br>
+                <input type="number" id="cats" name="cats" min="0" max="30" value="0">
+
+
+            </p>
+
+            <p>
+                <label for="when">When did you get your first cat?</label><br>
+                <input type="date" id="when" name="when">
 
             </p>
 
@@ -74,11 +87,43 @@
 
             <p>
 
-                <label for="why">Why That one</label><br>
+                <label for="why">Why That One?</label><br>
                 <textarea id="why" rows="5" cols="40">
 
                 </textarea>
             </p>
+
+            <fieldset>
+                <legend>Whats the highest amount of cats you would have?</legend>
+
+                <p>
+                    <input type="radio" id="least" name="amount" value="least" checked>
+                    <label for="least">1 to 4</label>
+                </p>
+
+                <p>
+                    <input type="radio" id="mid" name="amount" value="mid">
+                    <label for="mid">5 to 20</label>
+
+                </p>
+
+                <p>
+
+                    <input type="radio" id="most" name="amount" value="most">
+                    <label for="most">20+</label>
+
+                </p>
+
+            </fieldset>
+
+            <p>
+                <input type="checkbox" id="allergy" name="allergy" value="yes">
+                <label for="allergy">Cats are better than dogs</label>
+
+
+            </p>
+
+
 
             <p><button type="submit">Submit</button></p>
 
