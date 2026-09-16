@@ -7,11 +7,21 @@
 
 /* --- element selector: every <body> on the site --- */
 
+
+/* Palette */
+:root{
+    --dark: #F0C2C9; /* intros + extra info like tables*/
+    --light: #FADADD; /* main sections, nav links, credits */
+    --background: #FFF5F5; 
+
+
+}
+
 body {
     font-family: Quicksand, "Nunito", "Segoe UI", sans-serif;
     line-height: 1.6;
     color: #253D31;
-    background-color: #FFF5F5;
+    background-color: var(--background);
     margin: 0 auto;
     max-width: 45rem;
     padding: 1.5rem;
@@ -47,7 +57,7 @@ h3 {
 /* --- CLASS selector. The dot means "any element with class=intro".
        We put class="intro" on that div back in L8, for exactly this. --- */
 .intro {
-    background-color: #F0C2C9;
+    background-color: var(--dark);
     padding: 1rem;
 
 }
@@ -59,7 +69,7 @@ h3 {
 }
 
 .navLinks {
-    background-color: #FADADD;
+    background-color: var(--light);
     color: #8A9A86;
     border-radius: 8px;
 
@@ -71,15 +81,18 @@ h3 {
 
 #mainInfo {
 
-    background-color: #FADADD;
+    background-color: var(--light);
     padding: 1rem;
 
 }
 
 #tableInfo {
-    background-color: #F0C2C9;
+    background-color: var(--dark);
     padding: 1rem;
 
+}
+#credits{
+background-color: var(--light);
 }
 
 #quote {
@@ -99,4 +112,17 @@ a {
 dt {
     color: #A3485E;
     font-weight: bold;
+}
+
+body {
+    background-color : var(--background);
+    background-image: url(images/pink\ white.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment:fixed;
+}
+
+footer {
+    font-weight: bolder;
 }
