@@ -9,10 +9,14 @@
 
 
 /* Palette */
-:root{
-    --dark: #F0C2C9; /* intros + extra info like tables*/
-    --light: #FADADD; /* main sections, nav links, credits */
-    --background: #FFF5F5; 
+:root {
+    --dark: #F0C2C9;
+    /* intros + extra info like tables*/
+    --light: #FADADD;
+    /* main sections, nav links, credits */
+    --background: #FFF5F5;
+
+    --line: #d6d3cc;
 
 
 }
@@ -39,9 +43,12 @@ h1 {
 h2 {
     font-size: 1.6rem;
     color: #4D6346;
-    border-bottom: 1px solid #d6d3cc;
     font-family: "Parisienne", "Great Vibes", cursive;
     line-height: 1.6;
+    border-bottom: 1px solid var(--line); /* under every heading*/
+    margin-top: 2rem; 
+    padding-left: 1rem;
+    padding-bottom: .25rem;
 
 }
 
@@ -54,11 +61,60 @@ h3 {
 
 }
 
+a {
+    color: #1E352F;
+}
+
+dt {
+    color: #A3485E;
+    font-weight: bold;
+}
+
+
+
+body {
+    background-color: var(--background);
+    background-image: url(images/pink\ white.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+footer {
+    font-weight: bolder;
+    padding: 1rem 2rem;
+}
+
+main {
+    padding: 1.5rem 2rem;
+}
+
+header {
+
+    padding: 1.5rem 2rem;
+}
+
+blockquote{
+    border-left: 6px solid var(--dark); /* one side only */
+    margin: 1.5rem 0; 
+    padding: 1rem 1.5rem;
+}
+
+img{
+   border: 5px solid var(--line);
+   margin: 15px;
+}
+
 /* --- CLASS selector. The dot means "any element with class=intro".
        We put class="intro" on that div back in L8, for exactly this. --- */
 .intro {
     background-color: var(--dark);
     padding: 1rem;
+    border: 1px solid var(--line); /* width style color */
+
 
 }
 
@@ -71,7 +127,10 @@ h3 {
 .navLinks {
     background-color: var(--light);
     color: #8A9A86;
+    border: 4px dotted var(--line);
     border-radius: 8px;
+    margin: 0; 
+    padding: 0;
 
 }
 
@@ -88,11 +147,13 @@ h3 {
 
 #tableInfo {
     background-color: var(--dark);
-    padding: 1rem;
+    padding: 1rem 2rem;
+    margin: 30px;
 
 }
-#credits{
-background-color: var(--light);
+
+#credits {
+    background-color: var(--light);
 }
 
 #quote {
@@ -103,28 +164,4 @@ background-color: var(--light);
 #contentList {
     padding: 1rem;
     color: #D0527A;
-}
-
-a {
-    color: #1E352F;
-}
-
-dt {
-    color: #A3485E;
-    font-weight: bold;
-}
-
-
-
-body {
-    background-color : var(--background);
-    background-image: url(images/pink\ white.jpg);
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-    background-attachment:fixed;
-}
-
-footer {
-    font-weight: bolder;
 }
