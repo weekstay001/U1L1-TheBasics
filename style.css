@@ -18,13 +18,33 @@
 
     --line: #d6d3cc;
 
+    --text:#253D31;
 
+    --bigTop: #8A9A86; /* main topic headings*/
+
+    --medTop: #4D6346; /* Sub topics headings */
+
+    --litTop:#3B4E38; /* topics inside of sub topics or unrelated information */
+
+    --link: #1E352F;
+
+    --def: #A3485E; /* used for definition titles */
+
+    --warning: #b3261e;  /* used only for warnings */
+
+    --navLink: #8A9A86; /* used for text in the navlink section*/
+
+    --topList: #964B61; /* used for list titles */
+
+    --quotes: #C21E56; /* used for quotes */
+
+    --content: #D0527A; /* used in content lists */
 }
 
 body {
     font-family: "Cormorant Garamond", Garamond, "Times New Roman", serif;
     line-height: 1.6;
-    color: #253D31;
+    color: var(var(--text));
     background-color: var(--background);
     margin: 0 auto;
     max-width: 45rem;
@@ -34,7 +54,7 @@ body {
 
 h1 {
     font-size: 2rem;
-    color: #8A9A86;
+    color: var(--bigTop);
     font-family: "Parisienne", "Great Vibes", cursive;
     line-height: 1.6;
 
@@ -42,7 +62,7 @@ h1 {
 
 h2 {
     font-size: 1.6rem;
-    color: #4D6346;
+    color: var(--medTop);
     font-family: "Parisienne", "Great Vibes", cursive;
     line-height: 1.6;
     border-bottom: 1px solid var(--line); /* under every heading*/
@@ -54,19 +74,19 @@ h2 {
 
 h3 {
     font-size: 1.4rem;
-    color: #3B4E38;
-    border-bottom: 1px solid #d6d3cc;
+    color: var(--litTop);
+    border-bottom: 1px solid var(--line);
     line-height: 1.6;
     font-family: "Parisienne", "Great Vibes", cursive;
 
 }
 
 a {
-    color: #1E352F;
+    color: var(--link);
 }
 
 dt {
-    color: #A3485E;
+    color: var(--def);
     font-weight: bold;
 }
 
@@ -120,13 +140,13 @@ img{
 
 /* --- another class, already on the page since L8 --- */
 .warning {
-    color: #b3261e;
+    color: var(--warning);
     font-weight: bold;
 }
 
 .navLinks {
     background-color: var(--light);
-    color: #8A9A86;
+    color: var(--navLink);
     border: 4px dotted var(--line);
     border-radius: 8px;
     margin: 0; 
@@ -135,7 +155,7 @@ img{
 }
 
 .listTitle {
-    color: #964B61;
+    color: var(--topList);
 }
 
 #mainInfo {
@@ -158,10 +178,10 @@ img{
 
 #quote {
     padding: 1rem;
-    color: #C21E56;
+    color: var(--quotes);
 }
 
 #contentList {
     padding: 1rem;
-    color: #D0527A;
+    color: var(--content);
 }
