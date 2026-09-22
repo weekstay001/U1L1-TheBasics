@@ -6,7 +6,9 @@
    ============================================================ */
 
 /* --- element selector: every <body> on the site --- */
-
+* {
+    box-sizing: border-box;
+}
 
 /* Palette */
 :root {
@@ -18,33 +20,42 @@
 
     --line: #d6d3cc;
 
-    --text:#253D31;
+    --text: #253D31;
 
-    --bigTop: #8A9A86; /* main topic headings*/
+    --bigTop: #8A9A86;
+    /* main topic headings*/
 
-    --medTop: #4D6346; /* Sub topics headings */
+    --medTop: #4D6346;
+    /* Sub topics headings */
 
-    --litTop:#3B4E38; /* topics inside of sub topics or unrelated information */
+    --litTop: #3B4E38;
+    /* topics inside of sub topics or unrelated information */
 
     --link: #1E352F;
 
-    --def: #A3485E; /* used for definition titles */
+    --def: #A3485E;
+    /* used for definition titles */
 
-    --warning: #b3261e;  /* used only for warnings */
+    --warning: #b3261e;
+    /* used only for warnings */
 
-    --navLink: #8A9A86; /* used for text in the navlink section*/
+    --navLink: #8A9A86;
+    /* used for text in the navlink section*/
 
-    --topList: #964B61; /* used for list titles */
+    --topList: #964B61;
+    /* used for list titles */
 
-    --quotes: #C21E56; /* used for quotes */
+    --quotes: #C21E56;
+    /* used for quotes */
 
-    --content: #D0527A; /* used in content lists */
+    --content: #D0527A;
+    /* used in content lists */
 }
 
 body {
     font-family: "Cormorant Garamond", Garamond, "Times New Roman", serif;
     line-height: 1.6;
-    color: var(var(--text));
+    color: var(--text);
     background-color: var(--background);
     margin: 0 auto;
     max-width: 45rem;
@@ -65,8 +76,9 @@ h2 {
     color: var(--medTop);
     font-family: "Parisienne", "Great Vibes", cursive;
     line-height: 1.6;
-    border-bottom: 1px solid var(--line); /* under every heading*/
-    margin-top: 2rem; 
+    border-bottom: 1px solid var(--line);
+    /* under every heading*/
+    margin-top: 2rem;
     padding-left: 1rem;
     padding-bottom: .25rem;
 
@@ -99,8 +111,10 @@ body {
     background-position: center top;
     background-size: cover;
     background-attachment: fixed;
-    margin: 0 auto;
+    margin: 0 auto; /* centering! */
     padding: 1.5rem;
+    max-width: 48rem;
+
 }
 
 footer {
@@ -117,25 +131,73 @@ header {
     padding: 1.5rem 2rem;
 }
 
-blockquote{
-    border-left: 6px solid var(--dark); /* one side only */
-    margin: 1.5rem 0; 
+blockquote {
+    border-left: 6px solid var(--dark);
+    /* one side only */
+    margin: 1.5rem 0;
     padding: 1rem 1.5rem;
 }
 
-img{
-   border: 5px solid var(--line);
-   margin: 15px;
+img {
+    border: 5px solid var(--line);
+    margin: 15px;
+    max-width: 100%;
+    height: auto; 
+}
+
+iframe {
+    max-width: 100%;
+}
+
+/* --- OUTLINE is where Tab is. It draws outside the box and takes no
+       space. Never remove it without replacing it with something visible. --- */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--navLink);
+    outline-offset: 2px;
 }
 
 /* --- CLASS selector. The dot means "any element with class=intro".
        We put class="intro" on that div back in L8, for exactly this. --- */
+
+/* --- the skip link, now that Tab means something. It sits off-screen
+       until a keyboard user tabs to it, then appears at the top of the
+       page. Nothing else on the site is positioned. --- */
+
+.skip-link {
+    position: absolute;
+    top: 1rem;
+    left: -9999px;
+    background-color: var(--dark);
+    color: var(--text);
+    padding: .5rem 1rem;
+}
+
+.skip-link:focus {
+    left: 1rem;
+}
+
+
 .intro {
     background-color: var(--dark);
     padding: 1rem;
-    border: 1px solid var(--line); /* width style color */
+    border: 1px solid var(--line);
+    /* width style color */
 
 
+}
+
+.contents{
+   padding: 40px 20px; 
+   max-width: 22rem;
+   border: 2cap dotted var(--line);
+   border-bottom: 1rem;
+   border-top: 1rem;
+   margin: 0 auto;
+  
 }
 
 /* --- another class, already on the page since L8 --- */
@@ -149,7 +211,7 @@ img{
     color: var(--navLink);
     border: 4px dotted var(--line);
     border-radius: 8px;
-    margin: 0; 
+    margin: 0;
     padding: 0;
 
 }
@@ -181,7 +243,3 @@ img{
     color: var(--quotes);
 }
 
-#contentList {
-    padding: 1rem;
-    color: var(--content);
-}
