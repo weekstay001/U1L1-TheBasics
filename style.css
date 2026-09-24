@@ -6,6 +6,9 @@
    ============================================================ */
 
 /* --- element selector: every <body> on the site --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -54,7 +57,7 @@
 
 body {
     font-family: "Cormorant Garamond", Garamond, "Times New Roman", serif;
-    line-height: 1.6;
+    line-height: 1.8;
     color: var(--text);
     background-color: var(--background);
     margin: 0 auto;
@@ -64,17 +67,18 @@ body {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     color: var(--bigTop);
-    font-family: "Parisienne", "Great Vibes", cursive;
-    line-height: 1.6;
-
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+    line-height: 1.15;
+    letter-spacing: -0.5;
 }
 
 h2 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--medTop);
-    font-family: "Parisienne", "Great Vibes", cursive;
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+
     line-height: 1.6;
     border-bottom: 1px solid var(--line);
     /* under every heading*/
@@ -89,7 +93,8 @@ h3 {
     color: var(--litTop);
     border-bottom: 1px solid var(--line);
     line-height: 1.6;
-    font-family: "Parisienne", "Great Vibes", cursive;
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+
 
 }
 
@@ -111,15 +116,16 @@ body {
     background-position: center top;
     background-size: cover;
     background-attachment: fixed;
-    margin: 0 auto; /* centering! */
+    margin: 0 auto;
+    /* centering! */
     padding: 1.5rem;
     max-width: 48rem;
 
 }
 
 footer {
-    font-weight: bolder;
-    padding: 1rem 2rem;
+    font-size:smaller;
+    text-align: center;
 }
 
 main {
@@ -138,11 +144,20 @@ blockquote {
     padding: 1rem 1.5rem;
 }
 
+cite {
+font-weight: 600;
+
+}
+
+caption{
+    text-align: left;
+    font-weight: bold;
+}
 img {
     border: 5px solid var(--line);
     margin: 15px;
     max-width: 100%;
-    height: auto; 
+    height: auto;
 }
 
 iframe {
@@ -190,14 +205,14 @@ textarea:focus {
 
 }
 
-.contents{
-   padding: 40px 20px; 
-   max-width: 22rem;
-   border: 2cap dotted var(--line);
-   border-bottom: 1rem;
-   border-top: 1rem;
-   margin: 0 auto;
-  
+.contents {
+    padding: 40px 20px;
+    max-width: 22rem;
+    border: 2cap dotted var(--line);
+    border-bottom: 1rem;
+    border-top: 1rem;
+    margin: 0 auto;
+
 }
 
 /* --- another class, already on the page since L8 --- */
@@ -213,6 +228,14 @@ textarea:focus {
     border-radius: 8px;
     margin: 0;
     padding: 0;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+
+
+
 
 }
 
@@ -242,4 +265,3 @@ textarea:focus {
     padding: 1rem;
     color: var(--quotes);
 }
-
