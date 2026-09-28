@@ -124,7 +124,7 @@ body {
 }
 
 footer {
-    font-size:smaller;
+    font-size: smaller;
     text-align: center;
 }
 
@@ -145,14 +145,15 @@ blockquote {
 }
 
 cite {
-font-weight: 600;
+    font-weight: 600;
 
 }
 
-caption{
+caption {
     text-align: left;
     font-weight: bold;
 }
+
 img {
     border: 5px solid var(--line);
     margin: 15px;
@@ -174,6 +175,62 @@ textarea:focus {
     outline: 3px solid var(--navLink);
     outline-offset: 2px;
 }
+
+a:link {
+    color: var(--content);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--content);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--warning);
+}
+
+/* --- the header's links are white on green; their hover needs its own rule --- */
+header a:hover {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/* --- LISTS: the property goes on the list, not the items --- */
+nav ul {
+    list-style-type: none;
+}
+
+ol {
+    list-style-type: decimal-leading-zero;
+}
+
+ul {
+    list-style-type: square;
+}
+
+.contents ul {
+    list-style-position: inside;
+}
+
+#credits ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* no marker, no indent */
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: .75rem;
+}
+
 
 /* --- CLASS selector. The dot means "any element with class=intro".
        We put class="intro" on that div back in L8, for exactly this. --- */
