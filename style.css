@@ -75,7 +75,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     color: var(--medTop);
     font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
 
@@ -231,6 +231,44 @@ dd {
     margin-bottom: .75rem;
 }
 
+/* makes the table readable */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+
+    border: 1px solid var(--line);
+    padding: .5rem .75rem;
+    text-align: left;
+
+}
+
+th {
+    background-color: var(--light);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(20, 83, 45, 0.04);
+}
+
+tbody tr:hover {
+    background-color: rgba(122, 89, 1, 0.12);
+}
+
+caption {
+    caption-side: top;
+    padding: .5rem 0;
+}
+
+/* nav becomes a bar */
+nav li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
 
 /* --- CLASS selector. The dot means "any element with class=intro".
        We put class="intro" on that div back in L8, for exactly this. --- */
@@ -321,4 +359,9 @@ dd {
 #quote {
     padding: 1rem;
     color: var(--quotes);
+}
+
+#random {
+    display: none;
+    /* leaves nothing */
 }
