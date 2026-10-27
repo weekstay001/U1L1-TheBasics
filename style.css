@@ -1,12 +1,11 @@
 /* ============================================================
-   U2 L1 — the first stylesheet.
+   Cat site stylesheet.
    ONE file. Every page links to it. Change a rule here and all
-   four pages change at once — that is the whole argument for an
+   five pages change at once — that is the whole argument for an
    EXTERNAL stylesheet over writing style="" on every element.
    ============================================================ */
 
-/* --- element selector: every <body> on the site --- */
-
+/* @import must come before every other rule */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
@@ -16,7 +15,7 @@
 /* Palette */
 :root {
     --dark: #F0C2C9;
-    /* intros + extra info like tables*/
+    /* intros + extra info like tables */
     --light: #FADADD;
     /* main sections, nav links, credits */
     --background: #FFF5F5;
@@ -25,16 +24,20 @@
 
     --text: #253D31;
 
-    --bigTop: #8A9A86;
-    /* main topic headings*/
+    --bigTop: #4D6346;
+    /* main topic headings (darkened for contrast) */
 
-    --medTop: #4D6346;
-    /* Sub topics headings */
+    --medTop: #3B4E38;
+    /* sub topic headings */
 
-    --litTop: #3B4E38;
+    --litTop: #2F3F2D;
     /* topics inside of sub topics or unrelated information */
 
-    --link: #1E352F;
+    --link: #8F3A50;
+    /* unvisited links (darkened for contrast) */
+
+    --visited: #5B3F73;
+    /* visited links: different from unvisited so people can tell */
 
     --def: #A3485E;
     /* used for definition titles */
@@ -42,76 +45,27 @@
     --warning: #b3261e;
     /* used only for warnings */
 
-    --navLink: #8A9A86;
-    /* used for text in the navlink section*/
+    --navLink: #4D6346;
+    /* used for text in the navlink section */
 
-    --topList: #964B61;
+    --topList: #8F3A50;
     /* used for list titles */
 
-    --quotes: #C21E56;
+    --quotes: #A8123F;
     /* used for quotes */
 
-    --content: #D0527A;
+    --content: #A8123F;
     /* used in content lists */
 }
+
+/* --- element selectors --- */
 
 body {
     font-family: "Cormorant Garamond", Garamond, "Times New Roman", serif;
     line-height: 1.8;
     color: var(--text);
     background-color: var(--background);
-    margin: 0 auto;
-    max-width: 45rem;
-    padding: 1.5rem;
-
-}
-
-h1 {
-    font-size: 2.4rem;
-    color: var(--bigTop);
-    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
-    line-height: 1.15;
-    letter-spacing: -0.5;
-}
-
-h2 {
-    font-size: 1.6rem;
-    color: var(--medTop);
-    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
-
-    line-height: 1.6;
-    border-bottom: 1px solid var(--line);
-    /* under every heading*/
-    margin-top: 2rem;
-    padding-left: 1rem;
-    padding-bottom: .25rem;
-
-}
-
-h3 {
-    font-size: 1.4rem;
-    color: var(--litTop);
-    border-bottom: 1px solid var(--line);
-    line-height: 1.6;
-    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
-
-
-}
-
-a {
-    color: var(--link);
-}
-
-dt {
-    color: var(--def);
-    font-weight: bold;
-}
-
-
-
-body {
-    background-color: var(--background);
-    background-image: url(images/pink\ white.jpg);
+    background-image: url("images/pink white.jpg");
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -120,7 +74,45 @@ body {
     /* centering! */
     padding: 1.5rem;
     max-width: 48rem;
+}
 
+h1 {
+    font-size: 2.4rem;
+    color: var(--bigTop);
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 1.6rem;
+    color: var(--medTop);
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+    line-height: 1.6;
+    border-bottom: 1px solid var(--line);
+    /* under every heading */
+    margin-top: 2rem;
+    padding-left: 1rem;
+    padding-bottom: .25rem;
+    clear: both;
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: var(--litTop);
+    border-bottom: 1px solid var(--line);
+    line-height: 1.6;
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+}
+
+dt {
+    color: var(--def);
+    font-weight: 700;
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: .75rem;
 }
 
 footer {
@@ -133,7 +125,6 @@ main {
 }
 
 header {
-
     padding: 1.5rem 2rem;
 }
 
@@ -142,16 +133,12 @@ blockquote {
     /* one side only */
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
+    /* the quote never gets wider than a comfortable reading measure */
+    max-width: 36rem;
 }
 
 cite {
     font-weight: 600;
-
-}
-
-caption {
-    text-align: left;
-    font-weight: bold;
 }
 
 img {
@@ -163,6 +150,31 @@ img {
 
 iframe {
     max-width: 100%;
+    border: 0;
+    /* replaces the deprecated frameborder="0" attribute */
+}
+
+/* --- LINKS: order matters (LoVe HAte: link, visited, hover, active) --- */
+
+a {
+    color: var(--link);
+}
+
+a:link {
+    color: var(--link);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--visited);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--warning);
 }
 
 /* --- OUTLINE is where Tab is. It draws outside the box and takes no
@@ -176,27 +188,10 @@ textarea:focus {
     outline-offset: 2px;
 }
 
-a:link {
-    color: var(--content);
-    text-decoration: none;
-}
-
-a:visited {
-    color: var(--content);
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-a:active {
-    color: var(--warning);
-}
-
-/* --- the header's links are white on green; their hover needs its own rule --- */
+/* --- the header's links: their hover needs its own rule --- */
 header a:hover {
     background-color: var(--light);
-    color: var(--dark);
+    color: var(--text);
 }
 
 /* --- LISTS: the property goes on the list, not the items --- */
@@ -216,19 +211,11 @@ ul {
 #credits ul {
     list-style-type: none;
     padding-left: 0;
+    /* no marker, no indent */
 }
 
-/* no marker, no indent */
-dt {
-    font-weight: 700;
-}
+/* --- TABLES: make them readable --- */
 
-dd {
-    margin-left: 0;
-    margin-bottom: .75rem;
-}
-
-/* makes the table readable */
 table {
     border-collapse: collapse;
     width: 100%;
@@ -236,11 +223,9 @@ table {
 
 th,
 td {
-
     border: 1px solid var(--line);
     padding: .5rem .75rem;
     text-align: left;
-
 }
 
 th {
@@ -257,18 +242,22 @@ tbody tr:hover {
 
 caption {
     caption-side: top;
+    text-align: left;
+    font-weight: bold;
     padding: .5rem 0;
 }
 
+/* --- OVERFLOW: a table that is wider than the window scrolls inside this
+       box instead of pushing the whole page wider. --- */
 
+.table-wrap {
+    overflow-x: auto;
+}
 
-/* --- CLASS selector. The dot means "any element with class=intro".
-       We put class="intro" on that div back in L8, for exactly this. --- */
+/* --- CLASS and ID selectors --- */
 
-/* --- the skip link, now that Tab means something. It sits off-screen
-       until a keyboard user tabs to it, then appears at the top of the
-       page. Nothing else on the site is positioned. --- */
-
+/* The skip link sits off-screen until a keyboard user tabs to it,
+   then appears at the top of the page. */
 .skip-link {
     position: absolute;
     top: 1rem;
@@ -282,48 +271,33 @@ caption {
     left: 1rem;
 }
 
-
 .intro {
     background-color: var(--dark);
     padding: 1rem;
     border: 1px solid var(--line);
     /* width style color */
+    display: flow-root;
+    /* contains the floated figure so the box wraps around it */
 
-
+    .hero {
+        float: right;
+        /* moves the figure right so text wraps around it */
+        width: 50%;
+        margin: 0 0 .5rem 1.5rem;
+        /* keeps the words off the frame */
+    }
 }
 
 .contents {
     padding: 40px 20px;
     max-width: 22rem;
-    border: 2cap dotted var(--line);
-    border-bottom: 1rem;
-    border-top: 1rem;
+    border: 2px dotted var(--line);
     margin: 0 auto;
-
 }
 
-/* --- another class, already on the page since L8 --- */
 .warning {
     color: var(--warning);
     font-weight: bold;
-}
-
-.navLinks {
-    background-color: var(--light);
-    color: var(--navLink);
-    border: 4px dotted var(--line);
-    border-radius: 8px;
-    margin: 0;
-    padding: 0;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    font-weight: 600;
-    text-decoration: none;
-    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
-
-
-
-
 }
 
 .listTitle {
@@ -331,17 +305,22 @@ caption {
 }
 
 #who {
-
     background-color: var(--light);
     padding: 1rem;
+    display: flow-root;
 
+    .hero {
+        float: left;
+        width: 45%;
+        margin: 0 1.5rem .5rem 0;
+    }
 }
 
+#mainInfo,
 #tableInfo {
     background-color: var(--dark);
     padding: 1rem 2rem;
     margin: 30px;
-
 }
 
 #credits {
@@ -355,41 +334,38 @@ caption {
 
 #random {
     display: none;
-    /* leaves nothing */
-}
-
-/* --- max-width, one more time: the quote never gets wider than a
-       comfortable reading measure, whatever the page does. --- */
-blockquote {
-    max-width: 36rem;
+    /* hidden until the button has JavaScript behind it */
 }
 
 /* ============================================================
-   Position, z-index, overflow — and NESTING.
+   NAV BAR
+   position: sticky only sticks inside its PARENT. The nav's parent
+   used to be .navLinks, which was barely taller than the nav, so
+   it had nowhere to stick. The sticky rule now lives on .navLinks
+   itself, whose parent is <body> (the whole page).
 
-   From today, a rule that belongs to one part of the page is written
-   INSIDE that part's rule:
-
-       nav { a { } }          is the same as     nav a { }
-       a { &:hover { } }      is the same as     a:hover { }
-
-   & means "the thing I am inside". Every browser has understood this
-   since 2024. The nav rules from L3, L5, L6 and L7 are gathered here
-   and the originals are gone: reload, and nothing changed. Then the
-   nav moved out of the header in the HTML and got a bar of its own.
+   Nesting: a rule that belongs to one part of the page is written
+   INSIDE that part's rule. & means "the thing I am inside".
    ============================================================ */
 
-/* --- POSITION: sticky is in the flow until you scroll past it, then it
-       pins to the edge you name. top: 0 is the edge. z-index decides what
-       sits on top when two positioned things overlap: the caption below is
-       positioned too, and later in the file, so without this it would draw
-       over the nav as it scrolled past. --- */
-
-
-nav {
+.navLinks {
     position: sticky;
     top: 0;
     z-index: 10;
+    /* sits above the figure captions as they scroll past */
+    background-color: var(--light);
+    color: var(--navLink);
+    border: 4px dotted var(--line);
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+    font-family: "Montserrat", "Parisienne", "Great Vibes", cursive;
+}
+
+nav {
     padding: .5rem 2rem;
 
     ul {
@@ -402,7 +378,6 @@ nav {
         display: inline-block;
         padding: .25rem 0;
         margin-right: 1rem;
-
     }
 
     a {
@@ -413,13 +388,13 @@ nav {
 
         &:link,
         &:visited {
-            color: #A3485E;
-
+            color: var(--def);
         }
 
         &:hover {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--def);
+            color: #ffffff;
+            /* readable: white on dark rose */
         }
     }
 
@@ -428,11 +403,12 @@ nav {
     }
 }
 
-/* --- RELATIVE + ABSOLUTE: the caption sits ON the photo.
-       position: relative on the figure changes nothing you can see. It
-       makes the figure the box the caption measures from; take it away
-       and the caption measures from the page instead. The white frame
-       moves from the img to the figure, so the caption sits inside it. --- */
+/* ============================================================
+   FIGURE + CAPTION
+   position: relative on the figure makes it the box the caption
+   measures from. The white frame sits on the figure, so the caption
+   is inside it.
+   ============================================================ */
 
 .hero {
     position: relative;
@@ -459,75 +435,12 @@ nav {
     }
 }
 
-/* styles the caption so it appears over the bottom of the image, That is why the caption can appear as an overlay rather than as ordinary text underneath the image. */
-
-
 /* ============================================================
-   Float, inline-block, align.
-   Two layout tools older than Flexbox and still in every site you
-   use. Float is for text flowing round a photo, and that is all it
-   is for now. inline-block is a row of boxes, with a flaw that is
-   the reason Flexbox exists (U3 L7).
+   INLINE-BLOCK: three boxes in a row. Each takes a width, so they sit
+   side by side. Three 32% boxes is 96%, and the space character
+   between the <li>s counts as a word, so it can push the third box
+   onto a new line. 31% leaves room for those gaps.
    ============================================================ */
-
-/* --- FLOAT: the figure moves to one side and the paragraph flows round
-       it. A float only moves what comes AFTER it in the HTML, which is why
-       the figure sits above the paragraph. The margin keeps the words off
-       the frame; the width is what makes it a float and not a full-width
-       photo with nothing beside it.
-
-       display: flow-root on the box is the CONTAIN line. A float is taken
-       out of the flow, so without it the box ends at the paragraph and the
-       photo hangs out of the bottom. overflow: auto did the same job for
-       fifteen years, by accident; flow-root is the one made for it. --- */
-
-
-.intro {
-    display: flow-root;
-    /* contain the float: see next slide, Helps the parent contain its floated image. */
-
-    .hero {
-        float: right;
-        /* Moves the figure to the right so text can wrap around it*/
-
-        width: 50%;
-        /* Makes the figure half the width of its containing element. */
-
-        margin: 0 0 .5rem 1.5rem;
-        /* keep the words off the frame, Makes the figure half the width of its containing element.
-    margin	Adds space between the image and surrounding text.*/
-    }
-}
-
-#who {
-    display: flow-root;
-
-    .hero {
-        float: left;
-        width: 45%;
-        margin: 0 1.5rem .5rem 0;
-    }
-}
-
-
-h2 {
-    clear: both;
-}
-
-/* --- OVERFLOW: a table that is wider than the window scrolls inside this
-       box instead of pushing the whole page wider. visible is the default
-       (it spills), hidden clips it, scroll always shows bars, auto shows
-       them only when needed. --- */
-
-.table-wrap {
-    overflow-x: auto;
-}
-
-/* --- INLINE-BLOCK: three boxes in a row. Each is a word that takes a
-       width, so they sit side by side; vertical-align: top lines up their
-       tops instead of their baselines. 32% three times is 96%: the rest is
-       the SPACE CHARACTER between the </li> and the next <li>, which
-       inline-block treats as a word. That is its famous flaw. --- */
 
 .cat-groups {
     list-style-type: none;
@@ -536,16 +449,17 @@ h2 {
     .group {
         display: inline-block;
         vertical-align: top;
-        width: 32%;
+        /* line up the tops, not the baselines */
+        width: 31%;
         padding: .75rem 1rem;
         background-color: var(--light);
         border: 1px solid var(--line);
 
-        /* ALIGN: the card's title centred, as a block of its own */
         strong {
             display: block;
             text-align: center;
-            font-family: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+            /* "Source Sans 3" was never loaded, so use a font that is */
+            font-family: "Montserrat", "Segoe UI", Arial, sans-serif;
         }
 
         ul {
