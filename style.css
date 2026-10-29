@@ -56,6 +56,8 @@
 
     --content: #A8123F;
     /* used in content lists */
+
+    --accent: #B8860B;
 }
 
 /* --- element selectors --- */
@@ -440,13 +442,18 @@ nav {
    side by side. Three 32% boxes is 96%, and the space character
    between the <li>s counts as a word, so it can push the third box
    onto a new line. 31% leaves room for those gaps.
+
+   
+       L10: this was .group, with class="group" on each of the three items.
+       > li is the CHILD combinator: a direct child of .trail-groups, not
+       the li inside the inner lists. The classes came off the HTML.
    ============================================================ */
 
 .cat-groups {
     list-style-type: none;
     padding-left: 0;
 
-    .group {
+    & > li {
         display: inline-block;
         vertical-align: top;
         /* line up the tops, not the baselines */
@@ -468,3 +475,114 @@ nav {
         }
     }
 }
+
+/* ============================================================
+   Combinators, pseudo-classes, pseudo-elements.
+
+   A COMBINATOR joins two selectors and says how the elements relate.
+   You have used one since L2: the space, "inside, at any depth". A
+   nested block IS that space. Today the other three get names:
+
+
+       >   a direct child           .trail-groups > li
+       +   the very next sibling    h2 + p
+       ~   every later sibling      legend ~ p
+
+
+   A PSEUDO-CLASS (one colon) is a state the element is in: :hover,
+   :first-child, :checked. A PSEUDO-ELEMENT (two colons) is a part of
+   the element that has no tag of its own: ::first-letter, ::before.
+   ============================================================ */
+
+/* --- ADJACENT SIBLING, +: the element directly after. The first
+       paragraph under a heading sits tight to it. Flat: every h2. --- */
+
+h2+p {
+    margin-top: .5rem;
+}
+
+/* the first paragraph sits tight to its heading */
+
+dl {
+    dd+dt {
+        margin-top: 1rem;
+    }
+
+}
+
+/* air before every term after the first */
+
+fieldset {
+    legend~p {
+        margin: .35rem 0;
+    }
+
+}
+
+/* every radio row, tighter */
+
+form {
+    input:checked+label {
+        font-weight: 700;
+    }
+
+    /* tick it: the label goes bold */
+    p:focus-within {
+        background-color: var(--light);
+    }
+
+    /* the row you are typing in */
+}
+
+#route {
+    li:not(:last-child) {
+        /* a line under every step but the last */
+        border-bottom: 1px dotted var(--line);
+        padding-bottom: .25rem;
+        margin-bottom: .25rem;
+    }
+}
+
+.intro {
+
+    /* a SECOND .intro block: later wins */
+    p::first-letter {
+        /* the first letter, as if it had a tag */
+        float: left;
+        /* a drop cap is a float: L9 */
+        font-size: 3rem;
+        line-height: .85;
+        padding-right: .35rem;
+         color: var(--dark); 
+    }
+}
+
+blockquote {
+    position: relative;
+    /* the box the mark measures from: L8 */
+    padding-left: 3rem;
+
+    /* room for it */
+    &::before {
+        content: "\201C";
+        /* ::before needs content, even "" */
+        position: absolute;
+        left: .8rem;
+        top: .3rem;
+        font-size: 3rem;
+        line-height: 1;
+        color: var(--accent);
+    }
+}
+
+li::marker {
+    color: var(--accent);
+}
+
+/* the bullet itself */
+::selection {
+    background-color: var(--dark);
+    color: #ffffff;
+}
+
+/* highlighted text */
